@@ -73,14 +73,16 @@ get %r{/html/(.+)} do
   path = params[:captures][0]
   content = ContentAPI.content_for_path(path)
 
-  erb :html_embed, :locals => { :content => content, :host => request.host, :port => request.port }
+  erb :html_embed, :locals => { :content => content }
 end
 
 get %r{/oembed/(.+)} do
   content_type "application/javascript"
+
   path = params[:captures][0]
   content = ContentAPI.content_for_path(path)
-  content['stub'] = erb(:stub, :locals => { :content => content, :host => request.host, :port => request.port })
+  content['embed_link'] = "http://#{CONF['host']}:#{CONF['port']}/html/#{path}"
+  content['stub'] = CGI.escapeHTML(erb(:stub, :locals => { :content => content }))
 
   if params[:callback]
   	"#{params[:callback]}(#{content.to_json})"

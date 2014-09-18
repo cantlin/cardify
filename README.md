@@ -40,17 +40,16 @@ The ``stub`` property contains the minimal HTML that's suitable for rendering by
 	provider_url: "http://www.theguardian.com/",
 	version: "1.0",
 	type: "link",
-	url: "http://www.theguardian.com/media/greenslade/2014/sep/18/scottish-independence-national-newspapers",
-	title: "Scottish referendum - English newspapers publish dramatic front pages",
-	published: "2014-09-18T09:38:00Z",
-	trailText: "<p><strong>Roy Greenslade</strong> notes how editors have waved the flags in marking a historic day</p>",
-	byline: "Roy Greenslade",
-	tone: "comment",
-	content_type: "article",
-	byline_image: "http://static.guim.co.uk/sys-images/Guardian/Pix/pictures/2014/3/13/1394733747830/RoyGreenslade.png",
-	author_name: "Roy Greenslade",
-	author_url: "http://www.theguardian.com/profile/roygreenslade",
-	stub: "<aside> <h3>Related article</h3> <a href="http://www.theguardian.com/media/greenslade/2014/sep/18/scottish-independence-national-newspapers" data-canonical-url="http://theguardian.com/embed/card/" data-default-height="300" data-interactive="http://interactive.guim.co.uk/embed/iframe-wrapper/0.1/boot.js">Scottish referendum - English newspapers publish dramatic front pages</a> </aside>"
+	url: "http://www.theguardian.com/politics/video/2014/sep/17/scottish-referendum-explained-for-non-brits-video",
+	title: "Scottish referendum explained for non-Brits - video",
+	published: "2014-09-17T21:02:00Z",
+	trailText: "<p>An animated explanation of some fundamental questions prior to the referendum on Scottish independence</p>",
+	byline: "Alex Purcell, Julia Diniz, Tim Dowling, Pascal Wyse, Erica Buist",
+	content_type: "video",
+	tone: "news",
+	thumb: "http://static.guim.co.uk/sys-images/Guardian/Pix/audio/video/2014/9/17/1410982571423/Scottish-independence-exp-005.jpg",
+	embed_link: "http://cantl.in:8080/html/politics/video/2014/sep/17/scottish-referendum-explained-for-non-brits-video",
+	stub: "&lt;aside&gt; &lt;h3&gt;Related link&lt;/h3&gt; &lt;a href=&quot;http://www.theguardian.com/politics/video/2014/sep/17/scottish-referendum-explained-for-non-brits-video&quot; data-canonical-url=&quot;http://cantl.in:8080/html/politics/video/2014/sep/17/scottish-referendum-explained-for-non-brits-video&quot; data-default-height=&quot;300&quot; data-interactive=&quot;http://interactive.guim.co.uk/embed/iframe-wrapper/0.1/boot.js&quot;&gt;Scottish referendum explained for non-Brits - video&lt;/a&gt; &lt;/aside&gt;"
 }
 ```
 
@@ -80,7 +79,7 @@ Returns the full HTML and CSS for the rendering of the card.
 External parties can simply point an iframe at the full HTML:
 
 ```html
-<iframe frameborder="0" seamless width="416" height="250" src="http://cantl.in:8080/html/media/greenslade/2014/sep/18/scottish-independence-national-newspapers"></iframe>
+<iframe frameborder="0" seamless width="416" height="250" src="http://www.theguardian.com/embed/card/html/media/greenslade/2014/sep/18/scottish-independence-national-newspapers"></iframe>
 ```
 
 Guardian staff will be able to paste URLs into Composer of this type:

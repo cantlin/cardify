@@ -12,8 +12,8 @@
 	<div class="examples">
 		<h2>examples</h2>
 		<iframe frameborder="0" seamless width="500" height="250" src="<%= api_root %>/html/commentisfree/2014/sep/17/women-school-dress-code-violations-legal"></iframe>
-		<iframe frameborder="0" seamless width="500" height="220" src="<%= api_root %>/html/politics/live/2014/sep/18/scottish-independence-referendum-polling-day-live"></iframe>
-		<iframe frameborder="0" seamless width="500" height="250" src="<%= api_root %>/html/environment/2014/may/21/-sp-european-bison-europe-romania-carpathian-mountains"></iframe>
+		<iframe frameborder="0" seamless width="500" height="250" src="<%= api_root %>/html/politics/live/2014/sep/18/scottish-independence-referendum-polling-day-live"></iframe>
+		<iframe frameborder="0" seamless width="500" height="250" src="<%= api_root %>/html/fashion/2014/sep/18/prada-milan-fashion-week"></iframe>
 	</div>
 </div>
 
@@ -67,7 +67,7 @@
 
 			var tmp = d.createElement('div');
 			var link = api_root + "/oembed" + path;
-			tmp.innerHTML = "<h2>composer link</h2><a class='composer-link' href=''>" + link + ">" + link + "</a>"
+			tmp.innerHTML = "<h2>composer link</h2><a class='composer-link' href='" + link + "'>" + link + "</a>"
 
 			var preview = d.createElement('div');
 			preview.innerHTML = response;

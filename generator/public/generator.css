@@ -1,10 +1,28 @@
 body {
-	margin:0;
+	margin:100px 0 0 0;
 	padding:0;
 }
 
+body, textarea, input {
+	font-family:"Guardian Text Egyptian Web";
+	-webkit-font-smoothing: antialiased;
+}
+
+h1 {
+	font-family:"Guardian Egyptian Web";
+	font-weight:200;
+	font-size:40px;
+}
+
+h2 {
+	font-family:"Guardian Egyptian Web";
+	font-weight:900;
+	font-size:18px;
+	margin:10px 0;
+}
+
 .container {
-	width:600px;
+	width:500px;
 	margin:0 auto;
 }
 
@@ -17,12 +35,23 @@ input, textarea {
 }
 
 textarea {
-	height:200px;
+	height:120px;
 	font-family:'Courier New', 'Courier', monospace;
 	border:1px solid #ddd;
 }
 
 a {
 	display:block;
-	margin:40px 0;
+	text-decoration:none;
+}
+
+.composer-link {
+	padding:10px;
+	background-color:#ddd;
+	word-wrap: break-word;
+	color:#333;
+	text-shadow:1px 1px #fff;
+	font-family:'Courier New', 'Courier', monospace;
+	font-size:14px;
+	margin:0 0 100px 0;
 }

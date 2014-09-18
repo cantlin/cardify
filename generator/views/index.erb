@@ -1,10 +1,20 @@
 <title>generator</title>
+
+<link rel="stylesheet" href="/bower_components/guss-webfonts/nextgen-webfonts.css" />
 <link rel="stylesheet" href="/generator.css" />
 
 <div class="container">
+	<h1>Embed the Guardian.</h1>
+	<p class="help">Paste a URL, get an embed code.</h1>
 	<input type="text" />
 	<textarea></textarea>
-	<div id="preview"></div>
+	<div class="preview-container"></div>
+	<div class="examples">
+		<h2>examples</h2>
+		<iframe frameborder="0" seamless width="500" height="250" src="<%= api_root %>/html/commentisfree/2014/sep/17/women-school-dress-code-violations-legal"></iframe>
+		<iframe frameborder="0" seamless width="500" height="220" src="<%= api_root %>/html/politics/live/2014/sep/18/scottish-independence-referendum-polling-day-live"></iframe>
+		<iframe frameborder="0" seamless width="500" height="250" src="<%= api_root %>/html/environment/2014/may/21/-sp-european-bison-europe-romania-carpathian-mountains"></iframe>
+	</div>
 </div>
 
 <script>
@@ -43,6 +53,7 @@
 	input.onchange = function() {
 		var display = d.querySelector('textarea');
 		var container = d.querySelector('.container');
+		var previewContainer = d.querySelector('.preview-container');
 
 		if(!/^https?:\/\/www.theguardian\.com\/.*\d{4}.*/.test(input.value)) {
 			display.innerHTML = 'not a guardian content URL';
@@ -54,14 +65,17 @@
 		simpleRequest.get('/embed' + path, function(response) {
 			display.innerHTML = response;
 
+			var tmp = d.createElement('div');
+			var link = api_root + "/oembed" + path;
+			tmp.innerHTML = "<h2>composer link</h2><a class='composer-link' href=''>" + link + ">" + link + "</a>"
+
 			var preview = d.createElement('div');
 			preview.innerHTML = response;
-			var composerLink = d.createElement('a');
-			composerLink.href = api_root + "/oembed" + path;
-			composerLink.text = "Composer link";
 
-			container.appendChild(composerLink);
-			container.appendChild(preview);
+			previewContainer.innerHTML = '<h2>preview</h2>'
+			previewContainer.style.display = "block";
+			previewContainer.appendChild(preview);
+			previewContainer.appendChild(tmp);
 		}, function() {
 			console.log('something went horribly awry');
 		});

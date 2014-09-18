@@ -39,7 +39,7 @@ class ContentAPI
 			byline: api_response['fields']['byline']
 		}
 
-		content[:type] = api_response['tags'].select {|t| t['type'] == 'type'}[0]['id'].gsub('type/', '')
+		content[:content_type] = api_response['tags'].select {|t| t['type'] == 'type'}[0]['id'].gsub('type/', '')
 		tones = api_response['tags'].select {|t| t['type'] == 'tone'}.map {|t| t['id'].gsub('tone/', '')}
 		content[:tone] = tones.find {|t| t == 'minutebyminute'} || tones.find {|t| t == 'comment'} || tones.find {|t| t == 'features' } || 'news'
 		contributors = api_response['tags'].select {|t| t['type'] == 'contributor'}

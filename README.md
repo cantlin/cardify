@@ -50,7 +50,7 @@ The ``stub`` property contains the minimal HTML that's suitable for rendering by
 	author_name: "Roy Greenslade",
 	author_url: "http://www.theguardian.com/profile/roygreenslade",
 	stub: "<aside> <h3>Related article</h3> <a href="http://www.theguardian.com/media/greenslade/2014/sep/18/scottish-independence-national-newspapers" data-canonical-url="http://theguardian.com/embed/card/" data-default-height="300" data-interactive="http://interactive.guim.co.uk/embed/iframe-wrapper/0.1/boot.js">Scottish referendum - English newspapers publish dramatic front pages</a> </aside>"
-	}
+}
 ```
 
 ### /html/:path
@@ -79,7 +79,8 @@ Returns the full HTML and CSS for the rendering of the card.
 External parties can simply point an iframe at the full HTML:
 
 ```html
-<iframe frameborder="0" seamless width="416" height="250" src="http://cantl.in:8080/html/media/greenslade/2014/sep/18/scottish-independence-national-newspapers"></iframe>```
+<iframe frameborder="0" seamless width="416" height="250" src="http://cantl.in:8080/html/media/greenslade/2014/sep/18/scottish-independence-national-newspapers"></iframe>
+```
 
 Guardian staff will be able to paste URLs into Composer of this type:
 

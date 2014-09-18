@@ -1,0 +1,5 @@
+port: 8080
+bind: 0.0.0.0
+
+content_api_host: http://beta.content.guardianapis.com
+content_api_key: fake

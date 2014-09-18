@@ -1,0 +1,72 @@
+<title>generator</title>
+<link rel="stylesheet" href="/generator.css" />
+
+<div class="container">
+	<input type="text" />
+	<textarea></textarea>
+	<div id="preview"></div>
+</div>
+
+<script>
+(function() {
+	var d = document;
+	var input = d.querySelector('input');
+	var api_root = "<%= api_root %>"
+
+	var httpRequest = function() {
+	    if(window.XMLHttpRequest) return new XMLHttpRequest();
+
+	    if(window.ActiveXObject) {
+	        try      { return new ActiveXObject("Msxml2.XMLHTTP"); }
+	        catch(e) { return new ActiveXObject("Microsoft.XMLHTTP"); }
+	    }
+	}
+
+	var simpleRequest = {};
+	simpleRequest.get = function(uri, cb, err) {
+		var req = new httpRequest();
+
+		req.onreadystatechange = function() {
+			if(req.readyState === 4) {
+				if(req.status === 200) {
+					cb(req.responseText);
+				} else {
+					err(req.responseText);
+				}
+			}
+		}
+
+		req.open('GET', uri);
+		req.send();
+	}
+
+	input.onchange = function() {
+		var display = d.querySelector('textarea');
+		var container = d.querySelector('.container');
+
+		if(!/^https?:\/\/www.theguardian\.com\/.*\d{4}.*/.test(input.value)) {
+			display.innerHTML = 'not a guardian content URL';
+			input.focus();
+			return;
+		}
+
+		var path = input.value.replace(/^https?:\/\/www.theguardian\.com/, '');
+		simpleRequest.get('/embed' + path, function(response) {
+			display.innerHTML = response;
+
+			var preview = d.createElement('div');
+			preview.innerHTML = response;
+			var composerLink = d.createElement('a');
+			composerLink.href = api_root + "/oembed" + path;
+			composerLink.text = "Composer link";
+
+			container.appendChild(composerLink);
+			container.appendChild(preview);
+		}, function() {
+			console.log('something went horribly awry');
+		});
+	}
+
+	input.focus();
+})();
+</script>

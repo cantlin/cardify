@@ -1,0 +1,14 @@
+<a href="<%= content[:url] %>" data-gu-card>
+	<aside class="gu-card-container <%= content[:tone] %><%= content[:tone] == 'comment' ? ' has-byline-image' : ''%>">
+		<h2><%= content[:title] %></h2>
+		<% if(content[:tone]) == "comment" %>
+			<p class="byline"><%= content[:byline] %></p>
+		<% end %>
+		<p class="trailtext"><%= content[:trailText].gsub(/<\/?p>/, '') %></p>
+		<% if(content[:byline_image]) %>
+			<img class="byline-image" src="<%= content[:byline_image] %>">
+		<% end %>
+	</aside>
+</a>
+<link rel="stylesheet" href="/card.css" />
+<link rel="stylesheet" href="/bower_components/guss-webfonts/nextgen-webfonts.css" />

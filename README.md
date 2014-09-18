@@ -1,20 +1,13 @@
 # cardify
 
+Everybody loves cards.
+
+![example](https://raw.githubusercontent.com/cantlin/cardify/master/example.png)
+
 This repository contains:
 
 * a simple generator for embed codes
 * example implementation for the service that should actually provide the embeds
-
-## generator
-
-See [/generator](https://github.com/cantlin/cardify/tree/master/generator). Barebones app that outputs iframes for third party embedding.
-
-```
-cd generator
-gem install sinatra yaml json curb
-cp example_conf.yaml conf.yaml
-ruby generator.rb
-```
 
 ## example API
 
@@ -86,6 +79,17 @@ Guardian staff will be able to paste URLs into Composer of this type:
 
 ```
 http://theguardian.com/embed/card/:path
+```
+
+## generator
+
+Just an iframe generator. See [/generator](https://github.com/cantlin/cardify/tree/master/generator).
+
+```
+cd generator
+gem install sinatra yaml json curb
+cp example_conf.yaml conf.yaml
+ruby generator.rb
 ```
 
 ## Upgrading the card

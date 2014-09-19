@@ -85,6 +85,7 @@
 
 			var preview = d.createElement('div');
 			preview.innerHTML = response;
+			preview.querySelector('iframe').height = 0;
 
 			previewContainer.innerHTML = '<h2>preview</h2>'
 			previewContainer.style.display = "block";

@@ -67,26 +67,20 @@ a[data-gu-card] {
 
 .gu-card-container .trailtext {
 	padding:10px;
-	height:100px;
+	min-height:100px;
 	margin-top:10px;
 	color:#eee;
 }
 
 .gu-card-container.has-byline-image .trailtext {
-	padding-right:150px;
+	padding-right:145px;
 }
 
 .gu-card-container .byline-image {
 	width:40%;
 	position:absolute;
 	bottom:0;
-	right:0;
-}
-
-.gu-card-container:after {
-  content:"";
-  display:table;
-  clear:both;
+	right:-5px;
 }
 
 .gu-card-container.features {

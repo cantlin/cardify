@@ -11,9 +11,9 @@
 	<div class="preview-container"></div>
 	<div class="examples">
 		<h2>examples</h2>
-		<iframe frameborder="0" seamless width="500" height="250" src="<%= api_root %>/html/commentisfree/2014/sep/17/women-school-dress-code-violations-legal"></iframe>
-		<iframe frameborder="0" seamless width="500" height="250" src="<%= api_root %>/html/politics/live/2014/sep/18/scottish-independence-referendum-polling-day-live"></iframe>
-		<iframe frameborder="0" seamless width="500" height="250" src="<%= api_root %>/html/fashion/2014/sep/18/prada-milan-fashion-week"></iframe>
+		<iframe frameborder="0" seamless width="500" src="<%= api_root %>/html/commentisfree/2014/sep/17/women-school-dress-code-violations-legal"></iframe>
+		<iframe frameborder="0" seamless width="500" src="<%= api_root %>/html/politics/live/2014/sep/18/scottish-independence-referendum-polling-day-live"></iframe>
+		<iframe frameborder="0" seamless width="500" src="<%= api_root %>/html/fashion/2014/sep/18/prada-milan-fashion-week"></iframe>
 	</div>
 </div>
 
@@ -22,6 +22,20 @@
 	var d = document;
 	var input = d.querySelector('input');
 	var api_root = "<%= api_root %>"
+
+	// iframe-messenger listener
+	window.addEventListener('message', function(e) {
+		var message = JSON.parse(e.data);
+		if(message.type !== 'set-height') return;
+
+		var iframes = d.querySelectorAll('iframe');
+		for(var i = 0; i < iframes.length; i++) {
+			if(e.source === iframes[i].contentWindow) {
+				console.log(true);
+				iframes[i].style.height = message.value;
+			}
+		}
+	}, false);
 
 	var httpRequest = function() {
 	    if(window.XMLHttpRequest) return new XMLHttpRequest();

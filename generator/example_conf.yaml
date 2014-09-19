@@ -1,5 +1,5 @@
 port: 4567
 bind: 0.0.0.0
 
-api_host: http://127.0.0.1:8080
+api_host: http://localhost:8080
 # api_host: http://theguardian.com/embed/card

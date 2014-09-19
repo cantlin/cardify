@@ -31,7 +31,6 @@
 		var iframes = d.querySelectorAll('iframe');
 		for(var i = 0; i < iframes.length; i++) {
 			if(e.source === iframes[i].contentWindow) {
-				console.log(true);
 				iframes[i].style.height = message.value;
 			}
 		}
